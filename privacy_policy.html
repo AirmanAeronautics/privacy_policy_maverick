@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — TOGA by Airman Aeronautics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080b10;
+    --surface: #0d1219;
+    --surface2: #121820;
+    --border: rgba(255,255,255,0.07);
+    --border-accent: rgba(64,180,255,0.3);
+    --text: #c8d4e0;
+    --text-dim: #5a6a7a;
+    --text-bright: #eaf2fb;
+    --accent: #40b4ff;
+    --accent2: #00e5c0;
+    --accent-glow: rgba(64,180,255,0.12);
+    --warn: #ff8c42;
+    --warn-bg: rgba(255,140,66,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Grid overlay background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(64,180,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(64,180,255,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Radial glow top */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(ellipse at center, rgba(64,180,255,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,11,16,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(16px,5vw,80px);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    gap: 16px;
+  }
+
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--accent);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 12px rgba(64,180,255,0.25);
+  }
+
+  .logo-mark svg { width: 18px; height: 18px; }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--text-bright);
+    letter-spacing: 0.02em;
+  }
+
+  .logo-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .header-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: clamp(48px,8vw,100px) clamp(16px,5vw,80px) clamp(40px,6vw,80px);
+    max-width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 68px);
+    color: var(--text-bright);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 span { color: var(--accent); }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .meta-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  .meta-item strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ─── LAYOUT ─── */
+  .layout {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(32px,5vw,64px) clamp(16px,5vw,80px);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* ─── TOC SIDEBAR ─── */
+  .toc {
+    position: sticky;
+    top: 80px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+
+  .toc-label {
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-size: 10px;
+  }
+
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+    margin-left: -10px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .toc a:hover {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .content { min-width: 0; }
+
+  /* Google Play notice */
+  .gplay-notice {
+    background: var(--warn-bg);
+    border: 1px solid rgba(255,140,66,0.2);
+    border-left: 3px solid var(--warn);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 48px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .gplay-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .gplay-notice p {
+    font-size: 13px;
+    color: #e0b080;
+    line-height: 1.6;
+  }
+
+  .gplay-notice strong { color: var(--warn); }
+
+  /* Sections */
+  .section {
+    margin-bottom: 56px;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+    min-width: 24px;
+  }
+
+  .section h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-bright);
+    letter-spacing: -0.01em;
+  }
+
+  .section p, .section li {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .section ul, .section ol {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  .section li { margin-bottom: 6px; }
+
+  /* Data table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13.5px;
+  }
+
+  .data-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: left;
+    padding: 10px 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border-accent);
+  }
+
+  .data-table td {
+    padding: 10px 16px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--surface2); }
+
+  .data-table td:first-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-bright);
+    white-space: nowrap;
+  }
+
+  /* Tag chips */
+  .tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    margin: 2px 2px 2px 0;
+  }
+
+  .tag-sensitive {
+    background: rgba(255,60,60,0.12);
+    color: #ff8080;
+    border: 1px solid rgba(255,60,60,0.2);
+  }
+
+  .tag-normal {
+    background: rgba(64,180,255,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(64,180,255,0.15);
+  }
+
+  .tag-third {
+    background: rgba(0,229,192,0.08);
+    color: var(--accent2);
+    border: 1px solid rgba(0,229,192,0.15);
+  }
+
+  /* Callout boxes */
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .callout.warn {
+    border-left-color: var(--warn);
+    background: var(--warn-bg);
+  }
+
+  .callout.green {
+    border-left-color: var(--accent2);
+    background: rgba(0,229,192,0.05);
+  }
+
+  .callout p {
+    margin-bottom: 0 !important;
+    font-size: 13.5px;
+  }
+
+  .callout strong { color: var(--text-bright); }
+
+  /* Provider grid */
+  .provider-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .provider-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .provider-card .p-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 3px;
+  }
+
+  .provider-card .p-role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+
+  /* Rights grid */
+  .rights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .right-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .right-item:hover { border-color: var(--border-accent); }
+
+  .right-icon { font-size: 20px; margin-bottom: 8px; }
+
+  .right-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 4px;
+  }
+
+  .right-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-bottom: 0 !important;
+  }
+
+  /* Contact card */
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border-accent);
+    border-radius: 10px;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .contact-group {}
+
+  .contact-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    color: var(--text-bright);
+    margin-bottom: 0 !important;
+  }
+
+  .contact-value a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .contact-value a:hover { text-decoration: underline; }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 8px 0 32px;
+  }
+
+  /* Footer */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 28px clamp(16px,5vw,80px);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-left {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-right {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .toc { display: none; }
+
+    .contact-card {
+      grid-template-columns: 1fr;
+    }
+
+    .hero h1 { font-size: clamp(30px, 9vw, 48px); }
+  }
+
+  /* Scroll animations */
+  .section { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .section.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-inner">
+    <a href="https://www.theairman.org" class="logo-group">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#40b4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text">AIRMAN</div>
+        <div class="logo-sub">Aeronautics</div>
+      </div>
+    </a>
+    <div class="header-badge">TOGA — PRIVACY POLICY</div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-eyebrow">Legal Document</div>
+  <h1>Privacy <span>Policy</span></h1>
+  <p style="max-width:600px; font-size:15px; color:var(--text-dim); line-height:1.8;">
+    This policy explains how TOGA, operated by Airman Aeronautics, collects, uses, and protects your personal and operational aviation data across all platforms.
+  </p>
+  <div class="hero-meta">
+    <div class="meta-item">EFFECTIVE DATE <strong>—  [Insert Date]</strong></div>
+    <div class="meta-item">PLATFORM <strong>— TOGA (Mobile · Web · Org)</strong></div>
+    <div class="meta-item">OPERATOR <strong>— Airman Aeronautics Pvt. Ltd.</strong></div>
+  </div>
+</section>
+
+<!-- ─── MAIN LAYOUT ─── -->
+<div class="layout">
+
+  <!-- Sidebar TOC -->
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-label">Contents</div>
+    <a href="#s-roles">01 / Roles &amp; Control</a>
+    <a href="#s-collect">02 / Data Collected</a>
+    <a href="#s-use">03 / How We Use Data</a>
+    <a href="#s-ai">04 / Airman AI</a>
+    <a href="#s-share">05 / Data Sharing</a>
+    <a href="#s-retention">06 / Retention &amp; Deletion</a>
+    <a href="#s-security">07 / Security</a>
+    <a href="#s-rights">08 / Your Rights</a>
+    <a href="#s-children">09 / Children</a>
+    <a href="#s-disclaimer">10 / Disclaimer</a>
+    <a href="#s-contact">11 / Contact</a>
+  </nav>
+
+  <!-- Content -->
+  <main class="content">
+
+    <!-- Google Play Notice -->
+    <div class="gplay-notice">
+      <div class="gplay-icon">⚠️</div>
+      <p>
+        <strong>Google Play Notice:</strong> Because TOGA collects sensitive data (medical records, GPS location, aviation documents), Google Play requires disclosure <em>inside the app</em> — a website-only privacy policy is insufficient. A prominent in-app link to this policy and a Data Safety section must be completed in the Play Console.
+      </p>
+    </div>
+
+    <!-- 01 -->
+    <div class="section" id="s-roles">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>Roles &amp; Data Control</h2>
+      </div>
+      <p>TOGA operates in a multi-role environment. Depending on how the platform is used, different parties act as data controllers:</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Role</th>
+            <th>Data Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Airman Aeronautics</td>
+            <td>Platform Provider &amp; Primary Controller</td>
+            <td>All platform data</td>
+          </tr>
+          <tr>
+            <td>Flight Schools / Orgs</td>
+            <td>Secondary Controller (for their training data)</td>
+            <td>Organisation-scoped data</td>
+          </tr>
+          <tr>
+            <td>Instructors</td>
+            <td>Data Processor</td>
+            <td>Assigned cadet data</td>
+          </tr>
+          <tr>
+            <td>Cadets / Pilots</td>
+            <td>Data Subject</td>
+            <td>Own data only</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 02 -->
+    <div class="section" id="s-collect">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>Data We Collect</h2>
+      </div>
+      <p>TOGA collects the following categories of data. Sensitive categories are marked accordingly.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Examples</th>
+            <th>Classification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Identity</td>
+            <td>Name, email, phone, profile photo, country, city</td>
+            <td><span class="tag tag-normal">Personal</span></td>
+          </tr>
+          <tr>
+            <td>Aviation &amp; Regulatory</td>
+            <td>License details, certifications, ratings, <strong>medical records</strong>, uploaded documents</td>
+            <td><span class="tag tag-sensitive">Sensitive</span></td>
+          </tr>
+          <tr>
+            <td>Training &amp; Operational</td>
+            <td>Sorties, schedules, instructor feedback, grading, performance evaluations</td>
+            <td><span class="tag tag-normal">Personal</span></td>
+          </tr>
+          <tr>
+            <td>Flight &amp; Logbook</td>
+            <td>Aircraft details, routes, flight duration, manual &amp; AI-assisted logbook entries</td>
+            <td><span class="tag tag-normal">Personal</span></td>
+          </tr>
+          <tr>
+            <td>Flight Planning</td>
+            <td>Routes, waypoints, weather data, NOTAMs, fuel calculations, aeronautical charts</td>
+            <td><span class="tag tag-normal">Operational</span></td>
+          </tr>
+          <tr>
+            <td>Communications</td>
+            <td>Messages, group chats, network connections</td>
+            <td><span class="tag tag-normal">Personal</span></td>
+          </tr>
+          <tr>
+            <td>Study &amp; Learning</td>
+            <td>Quiz performance, progress tracking, achievements, badges</td>
+            <td><span class="tag tag-normal">Personal</span></td>
+          </tr>
+          <tr>
+            <td>Device &amp; Technical</td>
+            <td>IP address, device type, OS, usage analytics</td>
+            <td><span class="tag tag-normal">Technical</span></td>
+          </tr>
+          <tr>
+            <td>Device Permissions</td>
+            <td>GPS/location, camera, microphone, storage, contacts</td>
+            <td><span class="tag tag-sensitive">Sensitive</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout warn">
+        <p><strong>Medical &amp; Location Data:</strong> Medical records and precise GPS location are classified as sensitive personal data. Collection requires explicit user consent and is subject to heightened protection under applicable privacy regulations (GDPR, DPDP Act 2023).</p>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="section" id="s-use">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2>How We Use Your Data</h2>
+      </div>
+      <p>We process personal data only for the following purposes:</p>
+      <ul>
+        <li><strong>Core app functionality</strong> — account management, authentication, app features</li>
+        <li><strong>Flight training workflows</strong> — FTO system, sortie management, evaluations</li>
+        <li><strong>Instructor–cadet interaction</strong> — sharing feedback, grading, scheduling</li>
+        <li><strong>Regulatory compliance</strong> — maintaining aviation authority–required records</li>
+        <li><strong>AI-driven insights</strong> — logbook autofill, mission briefings, training recommendations via Airman AI</li>
+        <li><strong>Service improvement</strong> — analytics, diagnostics, performance monitoring</li>
+      </ul>
+      <div class="callout green">
+        <p><strong>No Advertising.</strong> We do not use your data for advertising, and we do not sell your data to any third party for commercial purposes.</p>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="section" id="s-ai">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2>Airman AI</h2>
+      </div>
+      <p>TOGA uses AI (Airman AI) to power logbook autofill, mission briefing and debriefing, and personalised training recommendations. AI processing may involve the following third-party providers:</p>
+
+      <div class="provider-grid">
+        <div class="provider-card">
+          <div class="p-name">OpenAI</div>
+          <div class="p-role">Language Model Processing</div>
+        </div>
+        <div class="provider-card">
+          <div class="p-name">Anthropic</div>
+          <div class="p-role">Language Model Processing</div>
+        </div>
+        <div class="provider-card">
+          <div class="p-name">Google</div>
+          <div class="p-role">AI / ML Services</div>
+        </div>
+      </div>
+
+      <p>AI outputs are stored and user data <em>may</em> be used to improve AI model performance, subject to applicable data processing agreements.</p>
+
+      <div class="callout warn">
+        <p><strong>Critical AI Limitation:</strong> Airman AI outputs are <strong>advisory only</strong>. AI may produce inaccurate results. AI does <strong>not</strong> replace certified flight instructors, aviation authorities, or regulatory guidance. Users must independently verify all AI-generated outputs before acting on them.</p>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="section" id="s-share">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2>Data Sharing</h2>
+      </div>
+      <p>We share data only with the following parties and under the following circumstances:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Recipient</th>
+            <th>Purpose</th>
+            <th>Basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Flight Schools / Orgs</td>
+            <td>Training management, Skynet integration</td>
+            <td>Contract / Consent</td>
+          </tr>
+          <tr>
+            <td>Instructors</td>
+            <td>Cadet data access (role-scoped)</td>
+            <td>Legitimate interest</td>
+          </tr>
+          <tr>
+            <td>AWS (Cloud)</td>
+            <td>Infrastructure &amp; storage</td>
+            <td><span class="tag tag-third">Service Provider</span></td>
+          </tr>
+          <tr>
+            <td>Firebase / Mixpanel</td>
+            <td>Analytics &amp; diagnostics</td>
+            <td><span class="tag tag-third">Service Provider</span></td>
+          </tr>
+          <tr>
+            <td>Google Maps</td>
+            <td>Maps &amp; navigation</td>
+            <td><span class="tag tag-third">Service Provider</span></td>
+          </tr>
+          <tr>
+            <td>Tomorrow.io</td>
+            <td>Weather data</td>
+            <td><span class="tag tag-third">Service Provider</span></td>
+          </tr>
+          <tr>
+            <td>AI Providers (OpenAI / Anthropic / Google)</td>
+            <td>AI feature processing</td>
+            <td><span class="tag tag-third">Service Provider</span></td>
+          </tr>
+          <tr>
+            <td>Aviation Authorities / Law</td>
+            <td>Legal &amp; regulatory compliance</td>
+            <td>Legal obligation</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout green">
+        <p><strong>No Data Sales.</strong> We do not sell your personal data. We do not allow third-party advertising targeting based on your data.</p>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="section" id="s-retention">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2>Data Retention &amp; Deletion</h2>
+      </div>
+      <p>We retain your personal data for as long as your account is active or as needed to provide services. Upon account deletion:</p>
+      <ul>
+        <li>Your data is retained for a <strong>30-day grace period</strong> to allow recovery.</li>
+        <li>After 30 days, your data is <strong>permanently and irreversibly deleted</strong> from our systems.</li>
+        <li>Certain data may be retained longer if required by aviation regulatory obligations.</li>
+      </ul>
+      <p>Users may request data export (e.g., logbook) at any time via the app or by contacting us.</p>
+    </div>
+
+    <!-- 07 -->
+    <div class="section" id="s-security">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2>Security</h2>
+      </div>
+      <p>We implement industry-standard technical and organisational security measures to protect your data:</p>
+      <ul>
+        <li><strong>Infrastructure:</strong> Hosted on Amazon Web Services (AWS) with enterprise-grade security controls</li>
+        <li><strong>Encryption:</strong> Data encrypted in transit (TLS) and at rest</li>
+        <li><strong>Access Control:</strong> Role-based access — instructors access only assigned cadet data; admins access only organisation-scoped data</li>
+        <li><strong>Authentication:</strong> Secure session management and credential handling</li>
+      </ul>
+      <div class="callout">
+        <p>Despite these measures, no system is completely immune to security threats. We encourage users to use strong passwords and report any suspected security issues to <a href="mailto:hello@theairman.org" style="color:var(--accent);">hello@theairman.org</a>.</p>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="section" id="s-rights">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2>Your Rights</h2>
+      </div>
+      <p>Depending on your jurisdiction (GDPR, India DPDP Act 2023, etc.), you have the following rights regarding your personal data:</p>
+      <div class="rights-grid">
+        <div class="right-item">
+          <div class="right-icon">👁️</div>
+          <div class="right-title">Access</div>
+          <p class="right-desc">Request a copy of all personal data we hold about you.</p>
+        </div>
+        <div class="right-item">
+          <div class="right-icon">✏️</div>
+          <div class="right-title">Correction</div>
+          <p class="right-desc">Update or correct inaccurate or incomplete data.</p>
+        </div>
+        <div class="right-item">
+          <div class="right-icon">🗑️</div>
+          <div class="right-title">Deletion</div>
+          <p class="right-desc">Request permanent deletion of your account and data.</p>
+        </div>
+        <div class="right-item">
+          <div class="right-icon">📦</div>
+          <div class="right-title">Portability</div>
+          <p class="right-desc">Export your logbook and training data in a portable format.</p>
+        </div>
+        <div class="right-item">
+          <div class="right-icon">🚫</div>
+          <div class="right-title">Objection</div>
+          <p class="right-desc">Object to certain processing activities, including AI profiling.</p>
+        </div>
+        <div class="right-item">
+          <div class="right-icon">🔒</div>
+          <div class="right-title">Restriction</div>
+          <p class="right-desc">Request restriction of processing in certain circumstances.</p>
+        </div>
+      </div>
+      <p style="margin-top:12px;">To exercise any of these rights, contact us at <a href="mailto:hello@theairman.org" style="color:var(--accent);">hello@theairman.org</a>.</p>
+    </div>
+
+    <!-- 09 -->
+    <div class="section" id="s-children">
+      <div class="section-header">
+        <span class="section-num">09</span>
+        <h2>Children &amp; Age Policy</h2>
+      </div>
+      <p>TOGA is available to users aged <strong>13 and above</strong>. Users under 18 are permitted only under:</p>
+      <ul>
+        <li>Verified flight school supervision</li>
+        <li>Explicit instructor oversight</li>
+      </ul>
+      <p>We do not knowingly collect personal data from children under 13. If you believe a child under 13 has created an account, please contact us immediately for deletion.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="s-disclaimer">
+      <div class="section-header">
+        <span class="section-num">10</span>
+        <h2>Aviation Safety Disclaimer &amp; Liability</h2>
+      </div>
+      <div class="callout warn">
+        <p><strong>TOGA is a support tool — not a replacement for certified training, instructors, or regulatory compliance.</strong> All flight decisions and training outcomes remain the sole responsibility of the user. Airman Aeronautics accepts no liability for flight decisions, training outcomes, AI-based recommendations, or operational losses arising from use of the platform.</p>
+      </div>
+      <p>Changes to this Privacy Policy will be communicated via in-app notification or email. Continued use of TOGA after changes are posted constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="s-contact">
+      <div class="section-header">
+        <span class="section-num">11</span>
+        <h2>Contact &amp; Developer Information</h2>
+      </div>
+      <p>For privacy-related questions, data requests, or to report concerns:</p>
+      <div class="contact-card">
+        <div class="contact-group">
+          <div class="contact-label">Developer / Operator</div>
+          <p class="contact-value">Airman Aeronautics Pvt. Ltd.</p>
+        </div>
+        <div class="contact-group">
+          <div class="contact-label">Registered Address</div>
+          <p class="contact-value">IITM Research Park, Chennai, India</p>
+        </div>
+        <div class="contact-group">
+          <div class="contact-label">Privacy Contact</div>
+          <p class="contact-value"><a href="mailto:hello@theairman.org">hello@theairman.org</a></p>
+        </div>
+        <div class="contact-group">
+          <div class="contact-label">Website</div>
+          <p class="contact-value"><a href="https://www.theairman.org" target="_blank" rel="noopener">www.theairman.org</a></p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">© 2024 Airman Aeronautics Pvt. Ltd. — TOGA Privacy Policy</div>
+    <div class="footer-right">IITM Research Park · Chennai, India</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-based section reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+  // TOC active state
+  const tocLinks = document.querySelectorAll('.toc a');
+  const sections = document.querySelectorAll('.section[id]');
+
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.style.color = '');
+        const active = document.querySelector(`.toc a[href="#${e.target.id}"]`);
+        if (active) {
+          active.style.color = 'var(--accent)';
+          active.style.borderLeftColor = 'var(--accent)';
+        }
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => tocObserver.observe(s));
+</script>
+</body>
+</html>
