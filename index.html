@@ -1,1039 +1,1186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Privacy Policy — TOGA by Airman Aeronautics</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #080b10;
-    --surface: #0d1219;
-    --surface2: #121820;
-    --border: rgba(255,255,255,0.07);
-    --border-accent: rgba(64,180,255,0.3);
-    --text: #c8d4e0;
-    --text-dim: #5a6a7a;
-    --text-bright: #eaf2fb;
-    --accent: #40b4ff;
-    --accent2: #00e5c0;
-    --accent-glow: rgba(64,180,255,0.12);
-    --warn: #ff8c42;
-    --warn-bg: rgba(255,140,66,0.08);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.75;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* Grid overlay background */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(64,180,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(64,180,255,0.025) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Radial glow top */
-  body::after {
-    content: '';
-    position: fixed;
-    top: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 900px;
-    height: 500px;
-    background: radial-gradient(ellipse at center, rgba(64,180,255,0.07) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ─── HEADER ─── */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(8,11,16,0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 clamp(16px,5vw,80px);
-  }
-
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    gap: 16px;
-  }
-
-  .logo-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-
-  .logo-mark {
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid var(--accent);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 12px rgba(64,180,255,0.25);
-  }
-
-  .logo-mark svg { width: 18px; height: 18px; }
-
-  .logo-text {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 17px;
-    color: var(--text-bright);
-    letter-spacing: 0.02em;
-  }
-
-  .logo-sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .header-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    border-radius: 4px;
-  }
-
-  /* ─── HERO ─── */
-  .hero {
-    position: relative;
-    z-index: 1;
-    padding: clamp(48px,8vw,100px) clamp(16px,5vw,80px) clamp(40px,6vw,80px);
-    max-width: 1100px;
-    margin: 0 auto;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(36px, 6vw, 68px);
-    color: var(--text-bright);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 span { color: var(--accent); }
-
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 28px;
-  }
-
-  .meta-item {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-  }
-
-  .meta-item strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  /* ─── LAYOUT ─── */
-  .layout {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: clamp(32px,5vw,64px) clamp(16px,5vw,80px);
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-
-  /* ─── TOC SIDEBAR ─── */
-  .toc {
-    position: sticky;
-    top: 80px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-  }
-
-  .toc-label {
-    color: var(--text-dim);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    font-size: 10px;
-  }
-
-  .toc a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 0;
-    color: var(--text-dim);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-    padding-left: 10px;
-    margin-left: -10px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-
-  .toc a:hover {
-    color: var(--accent);
-    border-left-color: var(--accent);
-  }
-
-  /* ─── MAIN CONTENT ─── */
-  .content { min-width: 0; }
-
-  /* Google Play notice */
-  .gplay-notice {
-    background: var(--warn-bg);
-    border: 1px solid rgba(255,140,66,0.2);
-    border-left: 3px solid var(--warn);
-    border-radius: 8px;
-    padding: 18px 20px;
-    margin-bottom: 48px;
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
-  .gplay-icon {
-    font-size: 20px;
-    flex-shrink: 0;
-    line-height: 1;
-    margin-top: 2px;
-  }
-
-  .gplay-notice p {
-    font-size: 13px;
-    color: #e0b080;
-    line-height: 1.6;
-  }
-
-  .gplay-notice strong { color: var(--warn); }
-
-  /* Sections */
-  .section {
-    margin-bottom: 56px;
-    animation: fadeUp 0.4s ease both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    opacity: 0.7;
-    min-width: 24px;
-  }
-
-  .section h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--text-bright);
-    letter-spacing: -0.01em;
-  }
-
-  .section p, .section li {
-    font-size: 14.5px;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 12px;
-  }
-
-  .section ul, .section ol {
-    padding-left: 20px;
-    margin-bottom: 12px;
-  }
-
-  .section li { margin-bottom: 6px; }
-
-  /* Data table */
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 13.5px;
-  }
-
-  .data-table th {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-align: left;
-    padding: 10px 16px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border-accent);
-  }
-
-  .data-table td {
-    padding: 10px 16px;
-    color: var(--text);
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-
-  .data-table tr:last-child td { border-bottom: none; }
-  .data-table tr:hover td { background: var(--surface2); }
-
-  .data-table td:first-child {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--text-bright);
-    white-space: nowrap;
-  }
-
-  /* Tag chips */
-  .tag {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 2px 7px;
-    border-radius: 3px;
-    letter-spacing: 0.08em;
-    margin: 2px 2px 2px 0;
-  }
-
-  .tag-sensitive {
-    background: rgba(255,60,60,0.12);
-    color: #ff8080;
-    border: 1px solid rgba(255,60,60,0.2);
-  }
-
-  .tag-normal {
-    background: rgba(64,180,255,0.08);
-    color: var(--accent);
-    border: 1px solid rgba(64,180,255,0.15);
-  }
-
-  .tag-third {
-    background: rgba(0,229,192,0.08);
-    color: var(--accent2);
-    border: 1px solid rgba(0,229,192,0.15);
-  }
-
-  /* Callout boxes */
-  .callout {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin: 16px 0;
-  }
-
-  .callout.warn {
-    border-left-color: var(--warn);
-    background: var(--warn-bg);
-  }
-
-  .callout.green {
-    border-left-color: var(--accent2);
-    background: rgba(0,229,192,0.05);
-  }
-
-  .callout p {
-    margin-bottom: 0 !important;
-    font-size: 13.5px;
-  }
-
-  .callout strong { color: var(--text-bright); }
-
-  /* Provider grid */
-  .provider-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 10px;
-    margin: 16px 0;
-  }
-
-  .provider-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 12px 14px;
-  }
-
-  .provider-card .p-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-bright);
-    margin-bottom: 3px;
-  }
-
-  .provider-card .p-role {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 0.08em;
-  }
-
-  /* Rights grid */
-  .rights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-    margin: 20px 0;
-  }
-
-  .right-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    transition: border-color 0.2s;
-  }
-
-  .right-item:hover { border-color: var(--border-accent); }
-
-  .right-icon { font-size: 20px; margin-bottom: 8px; }
-
-  .right-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-bright);
-    margin-bottom: 4px;
-  }
-
-  .right-desc {
-    font-size: 12px;
-    color: var(--text-dim);
-    line-height: 1.5;
-    margin-bottom: 0 !important;
-  }
-
-  /* Contact card */
-  .contact-card {
-    background: var(--surface);
-    border: 1px solid var(--border-accent);
-    border-radius: 10px;
-    padding: 28px 32px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .contact-group {}
-
-  .contact-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .contact-value {
-    font-size: 14px;
-    color: var(--text-bright);
-    margin-bottom: 0 !important;
-  }
-
-  .contact-value a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  .contact-value a:hover { text-decoration: underline; }
-
-  /* Divider */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 8px 0 32px;
-  }
-
-  /* Footer */
-  footer {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 28px clamp(16px,5vw,80px);
-  }
-
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .footer-left {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.08em;
-  }
-
-  .footer-right {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .layout {
-      grid-template-columns: 1fr;
-      gap: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — TOGA by Airman Aeronautics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --bg: #F7F7F5;
+      --surface: #FFFFFF;
+      --border: #E4E4DF;
+      --border-light: #EFEFEC;
+      --text-primary: #0D0D0D;
+      --text-secondary: #5A5A56;
+      --text-tertiary: #9A9A94;
+      --accent: #0D0D0D;
+      --accent-blue: #1A56DB;
+      --tag-bg: #EFEFEC;
+      --tag-text: #3A3A36;
+      --nav-h: 68px;
+      --max-w: 760px;
+      --r: 12px;
     }
 
-    .toc { display: none; }
+    html { scroll-behavior: smooth; }
 
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(247,247,245,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--text-primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-mark svg { display: block; }
+
+    .logo-wordmark {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white) !important;
+      background: var(--text-primary);
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.8; color: var(--white) !important; }
+
+    /* ── HERO BAND ── */
+    .hero-band {
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+      padding: 72px 40px 60px;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .breadcrumb a {
+      font-size: 12.5px;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--text-secondary); }
+
+    .breadcrumb-sep {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    .breadcrumb-current {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 12px 5px 8px;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-primary);
+    }
+
+    .badge-label {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--tag-text);
+    }
+
+    .hero-title {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .meta-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    .meta-value {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .meta-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+    }
+
+    /* ── LAYOUT ── */
+    .page-layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR TOC ── */
+    .toc {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+
+    .toc-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 16px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toc-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 10px;
+      font-size: 12.5px;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      border-radius: 7px;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover {
+      background: var(--border-light);
+      color: var(--text-primary);
+    }
+
+    .toc-list a.active {
+      background: var(--tag-bg);
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .toc-num {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      min-width: 14px;
+    }
+
+    /* ── CONTENT ── */
+    .content { min-width: 0; }
+
+    .intro-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+
+    .intro-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .intro-card p + p { margin-top: 12px; }
+
+    /* Sections */
+    .section {
+      margin-bottom: 48px;
+      scroll-margin-top: calc(var(--nav-h) + 32px);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .section-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      min-width: 24px;
+    }
+
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .section p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    /* Subsections */
+    .subsection { margin-bottom: 24px; }
+
+    .subsection-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    /* Data lists */
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .data-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .data-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--tag-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .data-icon svg { display: block; }
+
+    .data-text {
+      font-size: 13px;
+      color: var(--text-primary);
+      font-weight: 450;
+      line-height: 1.35;
+    }
+
+    /* Bullet lists */
+    .policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .policy-list li {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .policy-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-tertiary);
+    }
+
+    .policy-list li strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Callout */
+    .callout {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--text-primary);
+      border-radius: 0 9px 9px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .callout-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 6px;
+    }
+
+    .callout p {
+      font-size: 13.5px !important;
+      color: var(--text-secondary) !important;
+      margin: 0 !important;
+    }
+
+    /* Warning callout */
+    .callout.warning {
+      border-left-color: #B45309;
+      background: #FFFBEB;
+      border-color: #F8E4BE;
+      border-left-color: #B45309;
+    }
+
+    .callout.warning .callout-label { color: #92400E; }
+    .callout.warning p { color: #78350F !important; }
+
+    /* No-sell badge */
+    .no-sell {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 100px;
+      padding: 5px 12px;
+      margin-top: 12px;
+    }
+
+    .no-sell-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #16A34A;
+    }
+
+    .no-sell span:last-child {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #15803D;
+    }
+
+    /* Rights list */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .right-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 14px 16px;
+    }
+
+    .right-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .right-desc {
+      font-size: 12.5px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+
+    /* Contact card */
     .contact-card {
-      grid-template-columns: 1fr;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 16px;
     }
 
-    .hero h1 { font-size: clamp(30px, 9vw, 48px); }
-  }
+    .contact-info .contact-org {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
 
-  /* Scroll animations */
-  .section { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
-  .section.visible { opacity: 1; transform: none; }
-</style>
+    .contact-info .contact-address {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 9px 16px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .contact-link:hover {
+      background: var(--text-primary);
+      color: var(--white);
+      border-color: var(--text-primary);
+    }
+
+    .contact-link svg { transition: fill 0.15s; }
+    .contact-link:hover svg { fill: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-primary);
+      color: var(--white);
+      padding: 60px 40px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand .footer-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .footer-email {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+
+    .footer-email:hover { color: var(--white); }
+
+    .footer-col-title {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-policy-link {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+    }
+
+    .footer-policy-link:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+        padding: 40px 24px 80px;
+      }
+
+      .toc { display: none; }
+
+      .hero-band { padding: 48px 24px 44px; }
+      nav { padding: 0 24px; }
+
+      .data-grid, .rights-grid { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .contact-card { flex-direction: column; align-items: flex-start; }
+      .meta-row { gap: 12px; }
+      .meta-divider { display: none; }
+    }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-inner > * {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.12s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.19s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.26s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.33s; }
+  </style>
 </head>
 <body>
 
-<!-- ─── HEADER ─── -->
-<header>
-  <div class="header-inner">
-    <a href="https://www.theairman.org" class="logo-group">
-      <div class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#40b4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
-      </div>
-      <div>
-        <div class="logo-text">AIRMAN</div>
-        <div class="logo-sub">Aeronautics</div>
-      </div>
-    </a>
-    <div class="header-badge">TOGA — PRIVACY POLICY</div>
-  </div>
-</header>
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="https://www.theairman.org" class="nav-logo">
+        <img src="data:image/png;base64,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" alt="Airman Aeronautics" style="height:32px;width:32px;object-fit:contain;border-radius:6px;" />
+        <span class="logo-wordmark">Airman</span>
+      </a>
 
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="hero-eyebrow">Legal Document</div>
-  <h1>Privacy <span>Policy</span></h1>
-  <p style="max-width:600px; font-size:15px; color:var(--text-dim); line-height:1.8;">
-    This policy explains how TOGA, operated by Airman Aeronautics, collects, uses, and protects your personal and operational aviation data across all platforms.
-  </p>
-  <div class="hero-meta">
-    <div class="meta-item">EFFECTIVE DATE <strong>—  [Insert Date]</strong></div>
-    <div class="meta-item">PLATFORM <strong>— TOGA (Mobile · Web · Org)</strong></div>
-    <div class="meta-item">OPERATOR <strong>— Airman Aeronautics Pvt. Ltd.</strong></div>
-  </div>
-</section>
-
-<!-- ─── MAIN LAYOUT ─── -->
-<div class="layout">
-
-  <!-- Sidebar TOC -->
-  <nav class="toc" aria-label="Table of contents">
-    <div class="toc-label">Contents</div>
-    <a href="#s-roles">01 / Roles &amp; Control</a>
-    <a href="#s-collect">02 / Data Collected</a>
-    <a href="#s-use">03 / How We Use Data</a>
-    <a href="#s-ai">04 / Airman AI</a>
-    <a href="#s-share">05 / Data Sharing</a>
-    <a href="#s-retention">06 / Retention &amp; Deletion</a>
-    <a href="#s-security">07 / Security</a>
-    <a href="#s-rights">08 / Your Rights</a>
-    <a href="#s-children">09 / Children</a>
-    <a href="#s-disclaimer">10 / Disclaimer</a>
-    <a href="#s-contact">11 / Contact</a>
+      <ul class="nav-links">
+        <li><a href="https://www.theairman.org">Home</a></li>
+        <li><a href="https://www.theairman.org/maverick">Maverick</a></li>
+        <li><a href="https://www.theairman.org/skynet">Skynet</a></li>
+        <li><a href="https://www.theairman.org/about">About</a></li>
+        <li><a href="https://www.theairman.org/careers">Careers</a></li>
+        <li><a href="https://www.theairman.org" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Content -->
-  <main class="content">
+  <!-- ── HERO BAND ── -->
+  <div class="hero-band">
+    <div class="hero-inner">
+      <div class="breadcrumb">
+        <a href="https://www.theairman.org">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Privacy Policy</span>
+      </div>
 
-    <!-- Google Play Notice -->
-    <div class="gplay-notice">
-      <div class="gplay-icon">⚠️</div>
-      <p>
-        <strong>Google Play Notice:</strong> Because TOGA collects sensitive data (medical records, GPS location, aviation documents), Google Play requires disclosure <em>inside the app</em> — a website-only privacy policy is insufficient. A prominent in-app link to this policy and a Data Safety section must be completed in the Play Console.
+      <div class="product-badge">
+        <div class="badge-dot"></div>
+        <span class="badge-label">TOGA · Airman Aeronautics</span>
+      </div>
+
+      <h1 class="hero-title">Privacy Policy</h1>
+
+      <p class="hero-subtitle">
+        How TOGA collects, uses, protects, and handles your personal data across our pilot learning and exam preparation platform.
       </p>
-    </div>
 
-    <!-- 01 -->
-    <div class="section" id="s-roles">
-      <div class="section-header">
-        <span class="section-num">01</span>
-        <h2>Roles &amp; Data Control</h2>
-      </div>
-      <p>TOGA operates in a multi-role environment. Depending on how the platform is used, different parties act as data controllers:</p>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Entity</th>
-            <th>Role</th>
-            <th>Data Access</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Airman Aeronautics</td>
-            <td>Platform Provider &amp; Primary Controller</td>
-            <td>All platform data</td>
-          </tr>
-          <tr>
-            <td>Flight Schools / Orgs</td>
-            <td>Secondary Controller (for their training data)</td>
-            <td>Organisation-scoped data</td>
-          </tr>
-          <tr>
-            <td>Instructors</td>
-            <td>Data Processor</td>
-            <td>Assigned cadet data</td>
-          </tr>
-          <tr>
-            <td>Cadets / Pilots</td>
-            <td>Data Subject</td>
-            <td>Own data only</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 02 -->
-    <div class="section" id="s-collect">
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <h2>Data We Collect</h2>
-      </div>
-      <p>TOGA collects the following categories of data. Sensitive categories are marked accordingly.</p>
-
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Examples</th>
-            <th>Classification</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Identity</td>
-            <td>Name, email, phone, profile photo, country, city</td>
-            <td><span class="tag tag-normal">Personal</span></td>
-          </tr>
-          <tr>
-            <td>Aviation &amp; Regulatory</td>
-            <td>License details, certifications, ratings, <strong>medical records</strong>, uploaded documents</td>
-            <td><span class="tag tag-sensitive">Sensitive</span></td>
-          </tr>
-          <tr>
-            <td>Training &amp; Operational</td>
-            <td>Sorties, schedules, instructor feedback, grading, performance evaluations</td>
-            <td><span class="tag tag-normal">Personal</span></td>
-          </tr>
-          <tr>
-            <td>Flight &amp; Logbook</td>
-            <td>Aircraft details, routes, flight duration, manual &amp; AI-assisted logbook entries</td>
-            <td><span class="tag tag-normal">Personal</span></td>
-          </tr>
-          <tr>
-            <td>Flight Planning</td>
-            <td>Routes, waypoints, weather data, NOTAMs, fuel calculations, aeronautical charts</td>
-            <td><span class="tag tag-normal">Operational</span></td>
-          </tr>
-          <tr>
-            <td>Communications</td>
-            <td>Messages, group chats, network connections</td>
-            <td><span class="tag tag-normal">Personal</span></td>
-          </tr>
-          <tr>
-            <td>Study &amp; Learning</td>
-            <td>Quiz performance, progress tracking, achievements, badges</td>
-            <td><span class="tag tag-normal">Personal</span></td>
-          </tr>
-          <tr>
-            <td>Device &amp; Technical</td>
-            <td>IP address, device type, OS, usage analytics</td>
-            <td><span class="tag tag-normal">Technical</span></td>
-          </tr>
-          <tr>
-            <td>Device Permissions</td>
-            <td>GPS/location, camera, microphone, storage, contacts</td>
-            <td><span class="tag tag-sensitive">Sensitive</span></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout warn">
-        <p><strong>Medical &amp; Location Data:</strong> Medical records and precise GPS location are classified as sensitive personal data. Collection requires explicit user consent and is subject to heightened protection under applicable privacy regulations (GDPR, DPDP Act 2023).</p>
-      </div>
-    </div>
-
-    <!-- 03 -->
-    <div class="section" id="s-use">
-      <div class="section-header">
-        <span class="section-num">03</span>
-        <h2>How We Use Your Data</h2>
-      </div>
-      <p>We process personal data only for the following purposes:</p>
-      <ul>
-        <li><strong>Core app functionality</strong> — account management, authentication, app features</li>
-        <li><strong>Flight training workflows</strong> — FTO system, sortie management, evaluations</li>
-        <li><strong>Instructor–cadet interaction</strong> — sharing feedback, grading, scheduling</li>
-        <li><strong>Regulatory compliance</strong> — maintaining aviation authority–required records</li>
-        <li><strong>AI-driven insights</strong> — logbook autofill, mission briefings, training recommendations via Airman AI</li>
-        <li><strong>Service improvement</strong> — analytics, diagnostics, performance monitoring</li>
-      </ul>
-      <div class="callout green">
-        <p><strong>No Advertising.</strong> We do not use your data for advertising, and we do not sell your data to any third party for commercial purposes.</p>
-      </div>
-    </div>
-
-    <!-- 04 -->
-    <div class="section" id="s-ai">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2>Airman AI</h2>
-      </div>
-      <p>TOGA uses AI (Airman AI) to power logbook autofill, mission briefing and debriefing, and personalised training recommendations. AI processing may involve the following third-party providers:</p>
-
-      <div class="provider-grid">
-        <div class="provider-card">
-          <div class="p-name">OpenAI</div>
-          <div class="p-role">Language Model Processing</div>
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label">Effective</span>
+          <span class="meta-value">18 April 2026</span>
         </div>
-        <div class="provider-card">
-          <div class="p-name">Anthropic</div>
-          <div class="p-role">Language Model Processing</div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-label">Controller</span>
+          <span class="meta-value">Airman Aeronautics</span>
         </div>
-        <div class="provider-card">
-          <div class="p-name">Google</div>
-          <div class="p-role">AI / ML Services</div>
-        </div>
-      </div>
-
-      <p>AI outputs are stored and user data <em>may</em> be used to improve AI model performance, subject to applicable data processing agreements.</p>
-
-      <div class="callout warn">
-        <p><strong>Critical AI Limitation:</strong> Airman AI outputs are <strong>advisory only</strong>. AI may produce inaccurate results. AI does <strong>not</strong> replace certified flight instructors, aviation authorities, or regulatory guidance. Users must independently verify all AI-generated outputs before acting on them.</p>
-      </div>
-    </div>
-
-    <!-- 05 -->
-    <div class="section" id="s-share">
-      <div class="section-header">
-        <span class="section-num">05</span>
-        <h2>Data Sharing</h2>
-      </div>
-      <p>We share data only with the following parties and under the following circumstances:</p>
-
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Recipient</th>
-            <th>Purpose</th>
-            <th>Basis</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Flight Schools / Orgs</td>
-            <td>Training management, Skynet integration</td>
-            <td>Contract / Consent</td>
-          </tr>
-          <tr>
-            <td>Instructors</td>
-            <td>Cadet data access (role-scoped)</td>
-            <td>Legitimate interest</td>
-          </tr>
-          <tr>
-            <td>AWS (Cloud)</td>
-            <td>Infrastructure &amp; storage</td>
-            <td><span class="tag tag-third">Service Provider</span></td>
-          </tr>
-          <tr>
-            <td>Firebase / Mixpanel</td>
-            <td>Analytics &amp; diagnostics</td>
-            <td><span class="tag tag-third">Service Provider</span></td>
-          </tr>
-          <tr>
-            <td>Google Maps</td>
-            <td>Maps &amp; navigation</td>
-            <td><span class="tag tag-third">Service Provider</span></td>
-          </tr>
-          <tr>
-            <td>Tomorrow.io</td>
-            <td>Weather data</td>
-            <td><span class="tag tag-third">Service Provider</span></td>
-          </tr>
-          <tr>
-            <td>AI Providers (OpenAI / Anthropic / Google)</td>
-            <td>AI feature processing</td>
-            <td><span class="tag tag-third">Service Provider</span></td>
-          </tr>
-          <tr>
-            <td>Aviation Authorities / Law</td>
-            <td>Legal &amp; regulatory compliance</td>
-            <td>Legal obligation</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout green">
-        <p><strong>No Data Sales.</strong> We do not sell your personal data. We do not allow third-party advertising targeting based on your data.</p>
-      </div>
-    </div>
-
-    <!-- 06 -->
-    <div class="section" id="s-retention">
-      <div class="section-header">
-        <span class="section-num">06</span>
-        <h2>Data Retention &amp; Deletion</h2>
-      </div>
-      <p>We retain your personal data for as long as your account is active or as needed to provide services. Upon account deletion:</p>
-      <ul>
-        <li>Your data is retained for a <strong>30-day grace period</strong> to allow recovery.</li>
-        <li>After 30 days, your data is <strong>permanently and irreversibly deleted</strong> from our systems.</li>
-        <li>Certain data may be retained longer if required by aviation regulatory obligations.</li>
-      </ul>
-      <p>Users may request data export (e.g., logbook) at any time via the app or by contacting us.</p>
-    </div>
-
-    <!-- 07 -->
-    <div class="section" id="s-security">
-      <div class="section-header">
-        <span class="section-num">07</span>
-        <h2>Security</h2>
-      </div>
-      <p>We implement industry-standard technical and organisational security measures to protect your data:</p>
-      <ul>
-        <li><strong>Infrastructure:</strong> Hosted on Amazon Web Services (AWS) with enterprise-grade security controls</li>
-        <li><strong>Encryption:</strong> Data encrypted in transit (TLS) and at rest</li>
-        <li><strong>Access Control:</strong> Role-based access — instructors access only assigned cadet data; admins access only organisation-scoped data</li>
-        <li><strong>Authentication:</strong> Secure session management and credential handling</li>
-      </ul>
-      <div class="callout">
-        <p>Despite these measures, no system is completely immune to security threats. We encourage users to use strong passwords and report any suspected security issues to <a href="mailto:hello@theairman.org" style="color:var(--accent);">hello@theairman.org</a>.</p>
-      </div>
-    </div>
-
-    <!-- 08 -->
-    <div class="section" id="s-rights">
-      <div class="section-header">
-        <span class="section-num">08</span>
-        <h2>Your Rights</h2>
-      </div>
-      <p>Depending on your jurisdiction (GDPR, India DPDP Act 2023, etc.), you have the following rights regarding your personal data:</p>
-      <div class="rights-grid">
-        <div class="right-item">
-          <div class="right-icon">👁️</div>
-          <div class="right-title">Access</div>
-          <p class="right-desc">Request a copy of all personal data we hold about you.</p>
-        </div>
-        <div class="right-item">
-          <div class="right-icon">✏️</div>
-          <div class="right-title">Correction</div>
-          <p class="right-desc">Update or correct inaccurate or incomplete data.</p>
-        </div>
-        <div class="right-item">
-          <div class="right-icon">🗑️</div>
-          <div class="right-title">Deletion</div>
-          <p class="right-desc">Request permanent deletion of your account and data.</p>
-        </div>
-        <div class="right-item">
-          <div class="right-icon">📦</div>
-          <div class="right-title">Portability</div>
-          <p class="right-desc">Export your logbook and training data in a portable format.</p>
-        </div>
-        <div class="right-item">
-          <div class="right-icon">🚫</div>
-          <div class="right-title">Objection</div>
-          <p class="right-desc">Object to certain processing activities, including AI profiling.</p>
-        </div>
-        <div class="right-item">
-          <div class="right-icon">🔒</div>
-          <div class="right-title">Restriction</div>
-          <p class="right-desc">Request restriction of processing in certain circumstances.</p>
-        </div>
-      </div>
-      <p style="margin-top:12px;">To exercise any of these rights, contact us at <a href="mailto:hello@theairman.org" style="color:var(--accent);">hello@theairman.org</a>.</p>
-    </div>
-
-    <!-- 09 -->
-    <div class="section" id="s-children">
-      <div class="section-header">
-        <span class="section-num">09</span>
-        <h2>Children &amp; Age Policy</h2>
-      </div>
-      <p>TOGA is available to users aged <strong>13 and above</strong>. Users under 18 are permitted only under:</p>
-      <ul>
-        <li>Verified flight school supervision</li>
-        <li>Explicit instructor oversight</li>
-      </ul>
-      <p>We do not knowingly collect personal data from children under 13. If you believe a child under 13 has created an account, please contact us immediately for deletion.</p>
-    </div>
-
-    <!-- 10 -->
-    <div class="section" id="s-disclaimer">
-      <div class="section-header">
-        <span class="section-num">10</span>
-        <h2>Aviation Safety Disclaimer &amp; Liability</h2>
-      </div>
-      <div class="callout warn">
-        <p><strong>TOGA is a support tool — not a replacement for certified training, instructors, or regulatory compliance.</strong> All flight decisions and training outcomes remain the sole responsibility of the user. Airman Aeronautics accepts no liability for flight decisions, training outcomes, AI-based recommendations, or operational losses arising from use of the platform.</p>
-      </div>
-      <p>Changes to this Privacy Policy will be communicated via in-app notification or email. Continued use of TOGA after changes are posted constitutes acceptance of the updated policy.</p>
-    </div>
-
-    <!-- 11 -->
-    <div class="section" id="s-contact">
-      <div class="section-header">
-        <span class="section-num">11</span>
-        <h2>Contact &amp; Developer Information</h2>
-      </div>
-      <p>For privacy-related questions, data requests, or to report concerns:</p>
-      <div class="contact-card">
-        <div class="contact-group">
-          <div class="contact-label">Developer / Operator</div>
-          <p class="contact-value">Airman Aeronautics Pvt. Ltd.</p>
-        </div>
-        <div class="contact-group">
-          <div class="contact-label">Registered Address</div>
-          <p class="contact-value">IITM Research Park, Chennai, India</p>
-        </div>
-        <div class="contact-group">
-          <div class="contact-label">Privacy Contact</div>
-          <p class="contact-value"><a href="mailto:hello@theairman.org">hello@theairman.org</a></p>
-        </div>
-        <div class="contact-group">
-          <div class="contact-label">Website</div>
-          <p class="contact-value"><a href="https://www.theairman.org" target="_blank" rel="noopener">www.theairman.org</a></p>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-label">Contact</span>
+          <span class="meta-value">hello@theairman.org</span>
         </div>
       </div>
     </div>
-
-  </main>
-</div>
-
-<!-- ─── FOOTER ─── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-left">© 2024 Airman Aeronautics Pvt. Ltd. — TOGA Privacy Policy</div>
-    <div class="footer-right">IITM Research Park · Chennai, India</div>
   </div>
-</footer>
 
-<script>
-  // Scroll-based section reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
+  <!-- ── PAGE LAYOUT ── -->
+  <div class="page-layout">
 
-  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+    <!-- SIDEBAR TOC -->
+    <aside class="toc">
+      <div class="toc-label">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s-intro"><span class="toc-num">—</span> Introduction</a></li>
+        <li><a href="#s1"><span class="toc-num">01</span> Roles &amp; Control</a></li>
+        <li><a href="#s2"><span class="toc-num">02</span> Information We Collect</a></li>
+        <li><a href="#s3"><span class="toc-num">03</span> Use of Data</a></li>
+        <li><a href="#s4"><span class="toc-num">04</span> Airman AI</a></li>
+        <li><a href="#s5"><span class="toc-num">05</span> Data Sharing</a></li>
+        <li><a href="#s6"><span class="toc-num">06</span> Data Retention</a></li>
+        <li><a href="#s7"><span class="toc-num">07</span> Your Rights</a></li>
+        <li><a href="#s8"><span class="toc-num">08</span> Children &amp; Age</a></li>
+        <li><a href="#s9"><span class="toc-num">09</span> Security</a></li>
+        <li><a href="#s10"><span class="toc-num">10</span> AI Disclaimer</a></li>
+        <li><a href="#s11"><span class="toc-num">11</span> Liability</a></li>
+        <li><a href="#s12"><span class="toc-num">12</span> Policy Changes</a></li>
+        <li><a href="#s13"><span class="toc-num">13</span> Contact</a></li>
+      </ul>
+    </aside>
 
-  // TOC active state
-  const tocLinks = document.querySelectorAll('.toc a');
-  const sections = document.querySelectorAll('.section[id]');
+    <!-- CONTENT -->
+    <main class="content">
 
-  const tocObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        tocLinks.forEach(l => l.style.color = '');
-        const active = document.querySelector(`.toc a[href="#${e.target.id}"]`);
-        if (active) {
-          active.style.color = 'var(--accent)';
-          active.style.borderLeftColor = 'var(--accent)';
+      <!-- Intro -->
+      <div class="intro-card" id="s-intro">
+        <p>TOGA ("we," "our," or "us") is operated by Airman Aeronautics and provides a pilot learning and study platform designed to support aviation theory training and exam preparation.</p>
+        <p>This Privacy Policy explains how we collect, use, process, store, and share personal data when you use our services. This policy applies to our mobile applications and web platforms. By using TOGA, you agree to this Privacy Policy.</p>
+      </div>
+
+      <!-- Section 1 -->
+      <section class="section" id="s1">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-title">Roles &amp; Data Control</h2>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Platform Roles</div>
+          <p>TOGA is designed for individual users across the aviation training ecosystem:</p>
+          <ul class="policy-list">
+            <li><strong>Cadets</strong> — student pilots preparing for theory examinations</li>
+            <li><strong>Instructors</strong> — certified flight instructors supporting learner progress</li>
+            <li><strong>Seasoned Pilots</strong> — experienced aviators using the platform for reference and refresher training</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Data Controller</div>
+          <p>Airman Aeronautics is the primary data controller responsible for handling your personal data in accordance with applicable privacy regulations.</p>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="section" id="s2">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Information We Collect</h2>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Identity Information</div>
+          <div class="data-grid">
+            <div class="data-item">
+              <div class="data-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5" r="2.5" stroke="#5A5A56" stroke-width="1.2"/><path d="M2 12c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#5A5A56" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="data-text">Name &amp; email address</span>
+            </div>
+            <div class="data-item">
+              <div class="data-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="#5A5A56" stroke-width="1.2"/><path d="M5 7h4M5 9.5h2.5" stroke="#5A5A56" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="data-text">Phone number</span>
+            </div>
+            <div class="data-item">
+              <div class="data-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="4.5" stroke="#5A5A56" stroke-width="1.2"/><circle cx="7" cy="7" r="1.5" fill="#5A5A56"/></svg>
+              </div>
+              <span class="data-text">Profile photo</span>
+            </div>
+            <div class="data-item">
+              <div class="data-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2C4.8 2 3 3.8 3 6c0 3.5 4 6.5 4 6.5s4-3 4-6.5c0-2.2-1.8-4-4-4z" stroke="#5A5A56" stroke-width="1.2"/><circle cx="7" cy="6" r="1.2" fill="#5A5A56"/></svg>
+              </div>
+              <span class="data-text">Country &amp; city</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Study &amp; Learning Data</div>
+          <ul class="policy-list">
+            <li>Quiz performance and scores</li>
+            <li>Progress tracking across modules</li>
+            <li>Learning activity and engagement signals</li>
+            <li>Achievements and badges earned</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Device &amp; Technical Data</div>
+          <ul class="policy-list">
+            <li>IP address</li>
+            <li>Device type and operating system</li>
+            <li>Usage analytics and interaction patterns</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Permissions Data</div>
+          <p>Depending on your device settings, we may request access to:</p>
+          <ul class="policy-list">
+            <li>Storage / file access (for uploads, if applicable)</li>
+            <li>Camera (for profile photo, if applicable)</li>
+            <li>Device information</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="section" id="s3">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Use of Data</h2>
+        </div>
+        <p>We process your data to deliver and improve the TOGA platform:</p>
+        <ul class="policy-list">
+          <li>Provide study and learning features</li>
+          <li>Track academic progress and performance</li>
+          <li>Personalise the learning experience for your role and goals</li>
+          <li>Improve platform performance, reliability, and features</li>
+          <li>Generate AI-powered study insights through Airman AI</li>
+        </ul>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section" id="s4">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Artificial Intelligence (Airman AI)</h2>
+        </div>
+        <p>TOGA uses Airman AI to enhance the learning experience, including study recommendations, performance insights, and learning assistance.</p>
+
+        <div class="subsection">
+          <div class="subsection-title">AI Processing</div>
+          <ul class="policy-list">
+            <li>AI outputs may be stored and associated with your account</li>
+            <li>User data may be used to improve AI model accuracy over time</li>
+            <li>AI processing may involve trusted third-party AI providers</li>
+          </ul>
+        </div>
+
+        <div class="callout warning">
+          <div class="callout-label">⚠ Critical — AI Limitations</div>
+          <p>Airman AI is advisory only. AI-generated outputs may be inaccurate or incomplete. AI does <strong>not</strong> replace official study materials, formal training, or professional guidance. Users must independently verify important information before relying on it for any aviation-related decision.</p>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="section" id="s5">
+        <div class="section-header">
+          <span class="section-num">05</span>
+          <h2 class="section-title">Data Sharing</h2>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Service Providers</div>
+          <p>We may share data with trusted third-party providers who help us operate the platform, including cloud infrastructure providers (e.g. AWS) and analytics providers (e.g. Firebase, Mixpanel). These providers are bound by data processing agreements and may only use data for the purposes we specify.</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Legal Disclosure</div>
+          <p>We may disclose your data when required by law, regulatory authority, or valid legal process.</p>
+        </div>
+
+        <div class="no-sell">
+          <div class="no-sell-dot"></div>
+          <span>We do <strong>not</strong> sell your data</span>
+          <span>&nbsp;·&nbsp;</span>
+          <span>We do <strong>not</strong> use your data for advertising</span>
+        </div>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="section" id="s6">
+        <div class="section-header">
+          <span class="section-num">06</span>
+          <h2 class="section-title">Data Retention</h2>
+        </div>
+        <ul class="policy-list">
+          <li>Data is retained for as long as your account remains active</li>
+          <li>Upon account deletion, your data is retained for up to <strong>30 days</strong> before permanent deletion</li>
+          <li>Certain data may be retained longer where required by law or compliance obligations</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="section" id="s7">
+        <div class="section-header">
+          <span class="section-num">07</span>
+          <h2 class="section-title">Your Rights</h2>
+        </div>
+        <p>You have rights regarding your personal data. To exercise any of the following, contact us at hello@theairman.org.</p>
+
+        <div class="rights-grid">
+          <div class="right-item">
+            <div class="right-title">Access</div>
+            <div class="right-desc">Request a copy of the personal data we hold about you.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Correction</div>
+            <div class="right-desc">Correct or update inaccurate personal information.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Deletion</div>
+            <div class="right-desc">Delete your account and associated personal data.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Export</div>
+            <div class="right-desc">Receive a portable copy of your data in a usable format.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="section" id="s8">
+        <div class="section-header">
+          <span class="section-num">08</span>
+          <h2 class="section-title">Children &amp; Age Policy</h2>
+        </div>
+        <p>TOGA is intended for users aged <strong>13 and above</strong>. We do not knowingly collect personal data from children under the age of 13. If you believe a minor has provided data to us, please contact hello@theairman.org and we will take appropriate steps to remove it.</p>
+      </section>
+
+      <!-- Section 9 -->
+      <section class="section" id="s9">
+        <div class="section-header">
+          <span class="section-num">09</span>
+          <h2 class="section-title">Security</h2>
+        </div>
+        <p>We implement industry-standard security measures to protect your personal data, including:</p>
+        <ul class="policy-list">
+          <li>Secure cloud infrastructure with restricted access controls</li>
+          <li>Encryption in transit and at rest</li>
+          <li>Regular monitoring and security reviews</li>
+        </ul>
+        <p>No system is completely secure. While we take the protection of your data seriously, we cannot guarantee absolute security.</p>
+      </section>
+
+      <!-- Section 10 -->
+      <section class="section" id="s10">
+        <div class="section-header">
+          <span class="section-num">10</span>
+          <h2 class="section-title">AI &amp; Learning Disclaimer</h2>
+        </div>
+        <p>TOGA is a learning support platform. It does not replace:</p>
+        <ul class="policy-list">
+          <li>Formal aviation training programmes</li>
+          <li>Professional instructor-led instruction</li>
+          <li>Official approved study materials and examination resources</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">Important</div>
+          <p>All learning decisions remain the responsibility of the user. TOGA is a study aid — not a regulatory or operational authority.</p>
+        </div>
+      </section>
+
+      <!-- Section 11 -->
+      <section class="section" id="s11">
+        <div class="section-header">
+          <span class="section-num">11</span>
+          <h2 class="section-title">Limitation of Liability</h2>
+        </div>
+        <p>Airman Aeronautics shall not be liable for:</p>
+        <ul class="policy-list">
+          <li>Learning outcomes or examination performance</li>
+          <li>Decisions made based on AI-generated study insights</li>
+          <li>Any actions taken in reliance on content provided through the platform</li>
+        </ul>
+      </section>
+
+      <!-- Section 12 -->
+      <section class="section" id="s12">
+        <div class="section-header">
+          <span class="section-num">12</span>
+          <h2 class="section-title">Changes to Policy</h2>
+        </div>
+        <p>We may update this Privacy Policy from time to time as TOGA evolves. Any changes will be published with an updated effective date at the top of this page. Continued use of the platform following a policy update constitutes acceptance of the revised terms.</p>
+      </section>
+
+      <!-- Section 13 -->
+      <section class="section" id="s13">
+        <div class="section-header">
+          <span class="section-num">13</span>
+          <h2 class="section-title">Contact</h2>
+        </div>
+        <p>For questions, data access requests, or privacy concerns, reach us at:</p>
+
+        <div class="contact-card">
+          <div class="contact-info">
+            <div class="contact-org">Airman Aeronautics</div>
+            <div class="contact-address">
+              IITM Research Park, 3rd Floor, D-Block<br>
+              Taramani, Chennai, Tamil Nadu 600113<br>
+              India
+            </div>
+          </div>
+          <div class="contact-actions">
+            <a href="mailto:hello@theairman.org" class="contact-link">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8.5" rx="1.5" stroke="#0D0D0D" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#0D0D0D" stroke-width="1.2" stroke-linecap="round"/></svg>
+              hello@theairman.org
+            </a>
+            <a href="https://www.theairman.org" class="contact-link" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#0D0D0D" stroke-width="1.2"/><path d="M7 1.5c-1.5 1.5-2.5 3.2-2.5 5.5s1 4 2.5 5.5" stroke="#0D0D0D" stroke-width="1.2" stroke-linecap="round"/><path d="M7 1.5c1.5 1.5 2.5 3.2 2.5 5.5s-1 4-2.5 5.5" stroke="#0D0D0D" stroke-width="1.2" stroke-linecap="round"/><path d="M1.5 7h11" stroke="#0D0D0D" stroke-width="1.2" stroke-linecap="round"/></svg>
+              theairman.org
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Airman Aeronautics</div>
+          <p>The era of aviation intelligence. Building next-generation training technology for the global aviation industry.</p>
+          <a href="mailto:hello@theairman.org" class="footer-email">hello@theairman.org</a>
+          <br>
+          <span style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px;display:block;">IITM Research Park, 3rd Floor, D-Block<br>Taramani, Chennai, Tamil Nadu 600113</span>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Our Products</div>
+          <ul class="footer-links">
+            <li><a href="https://www.theairman.org/maverick">Maverick</a></li>
+            <li><a href="https://www.theairman.org/xb70">XB-70</a></li>
+            <li><a href="https://www.theairman.org/skynet">Skynet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="https://www.theairman.org/about">About</a></li>
+            <li><a href="https://www.theairman.org/careers">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Social</div>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/we_are_airman" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/airman-an-aerotech-company/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://x.com/WeAreAirman" target="_blank" rel="noopener">X (Twitter)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Airman Aeronautics. All Rights Reserved.</span>
+        <a href="#" class="footer-policy-link">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Active TOC highlight on scroll
+    const sections = document.querySelectorAll('.section, .intro-card');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const id = entry.target.id;
+          const active = document.querySelector(`.toc-list a[href="#${id}"]`);
+          if (active) active.classList.add('active');
         }
-      }
-    });
-  }, { threshold: 0.4 });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
 
-  sections.forEach(s => tocObserver.observe(s));
-</script>
+    sections.forEach(s => { if (s.id) observer.observe(s); });
+  </script>
+
 </body>
 </html>
